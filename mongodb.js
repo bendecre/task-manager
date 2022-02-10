@@ -11,5 +11,5 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true }, (error, client) =>
         return console.log('Unable to connect to database')
     }
 
-    
+    client.db()
 })
