@@ -6,6 +6,18 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
+// Middleware function
+// app.use((req, res, next) => {
+//     if (req.method === 'GET') {
+//            res.send('GET requests are disabled')
+//     } else {
+//         next()
+//     }
+// })
+app.use((req, res, next) => {
+    res.status(503).send('Server is current in maintenance mode, check back later.')
+})
+
 app.use(express.json())
 app.use(userRouter)
 app.use(taskRouter)
