@@ -14,9 +14,10 @@ const port = process.env.PORT || 3000
 //         next()
 //     }
 // })
-app.use((req, res, next) => {
-    res.status(503).send('Server is current in maintenance mode, check back later.')
-})
+
+// app.use((req, res, next) => {
+//     res.status(503).send('Server is current in maintenance mode, check back later.')
+// })
 
 app.use(express.json())
 app.use(userRouter)
