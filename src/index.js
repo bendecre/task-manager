@@ -27,15 +27,17 @@ app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
 
-// const bcrypt = require('bcryptjs')
+const Task = require('./models/task')
+const User = require('./models/user')
 
-// const myFunction = async () => {
-//     const password = 'Red12345!'
-//     const hashedPassword = await bcrypt.hash(password, 8)
+const main = async () => {
+    // const task = await Task.findById('622511139ac46deb8063fdbf')
+    // await task.populate('owner')
+    // console.log(task.owner)
 
-//     console.log(password)
-//     console.log(hashedPassword)
+    const user = await User.findById('621764611397b68ef579e43a')
+    await user.populate('tasks')
+    console.log(user.tasks)
+}
 
-//     const isMatch = await bcrypt.compare('Red12345!', hashedPassword)
-//     console.log(isMatch)
-// }
+main()
