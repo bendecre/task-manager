@@ -54,8 +54,6 @@ router.get('/users/me', auth, async (req, res) =>{
 })
 
 router.delete('/users/me', auth, async (req, res) => {
-    const _id = req.params.id
-    
     try{
         await req.user.remove()
         res.send(req.user)
