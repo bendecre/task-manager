@@ -80,6 +80,8 @@ const upload = multer({
 
 router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
     res.status(200).send
+}, (error, req, res, next) => {
+    res.status(400).send({ error: error.message })
 })
 
 router.patch('/users/me', auth, async (req, res) => {
